@@ -28,7 +28,7 @@
 #include "HashMap.h"
 
 /**
- *  Initilizes a new HashMap wit the specified capacity
+ *  Initializes a new HashMap wit the specified capacity
  *
  *  @param capacity The initial capacity of the HashMap
  *  @return A pointer to the newlly created HashMap on success, or NULL
