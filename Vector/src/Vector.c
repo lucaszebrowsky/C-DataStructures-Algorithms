@@ -118,5 +118,4 @@ void freeVector(struct vector* vector) {
 
     free(vector->array);
     free(vector);
-    vector = NULL;
 }
