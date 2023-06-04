@@ -27,14 +27,29 @@
 #include "Vector.h"
 
 /**
- * Allocates an initial size for the vector and sets every element to 0.
- *
- * @param vector A pointer to the vector structure.
- */
-void initVector(struct vector* vector) {
-    vector->array = calloc(INITSIZE, sizeof(int));
+  * Allocates an initial capacity for the vector and sets every element to 0.
+  *
+  * @param capacity An initial capacity for the vector structure
+  * @return A pointer to a vector structure on success, or NULL on failure.
+  */
+struct vector* initVector(size_t capacity) {
+    struct vector* vector = calloc(1, sizeof(struct vector));
+
+    if (NULL == vector) {
+        return NULL;
+    }
+
+    vector->array = calloc(capacity, sizeof(int));
+
+    if (NULL == vector->array) {
+        free(vector);
+        return NULL;
+    }
+
     vector->size = 0;
-    vector->capacity = INITSIZE;
+    vector->capacity = capacity;
+
+    return vector;
 }
 
 /**
@@ -89,4 +104,19 @@ void removeFromVector(struct vector* vector, size_t index) {
     }
 
     vector->size--;
+}
+
+/**
+ * Deallocates the memory occupied by the vector if it is no longer in use.
+ *
+ * @param vector A pointer to the vector structure.
+ */
+void freeVector(struct vector* vector) {
+    if (NULL == vector) {
+        return;
+    }
+
+    free(vector->array);
+    free(vector);
+    vector = NULL;
 }

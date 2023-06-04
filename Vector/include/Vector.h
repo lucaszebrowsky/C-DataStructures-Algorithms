@@ -24,17 +24,18 @@
 
 #pragma once
 
-#define INITSIZE 100
-
- // Vector of Ints
+// Vector of Ints
 struct vector {
     int* array;
     size_t size;
     size_t capacity;
 };
 
-// Allocates an initial size for the vector and sets every element to 0
-void initVector(struct vector* vector);
+/*
+ * Allocates an initial capacity for the vector.
+ * Returns a pointer to the vector struct on success otherwise NULL
+ */
+struct vector* initVector(size_t capacity);
 
 // Adds an integer to the vector
 void addToVector(struct vector* vector, int value);
@@ -44,3 +45,6 @@ int getValueFromVector(struct vector* vector, size_t index);
 
 // Removes the element at the specified index from the vector
 void removeFromVector(struct vector* vector, size_t index);
+
+// Deallocates the memory occupied by the vector if it is no longer in use
+void freeVector(struct vector* vector);
