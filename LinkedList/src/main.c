@@ -51,5 +51,7 @@ int main(void) {
         printf("Value of the new first Node: %d\n", temp2->value);
     }
 
+    freeLinkedList(list);
+
     return 0;
 }

@@ -55,3 +55,6 @@ struct node* getNode(struct LinkedList* list, size_t index);
  *  to pointer to the next node after the one being removed, if necessary.
  */
 void removeNode(struct LinkedList* list, size_t index);
+
+// Deallocates the memory occupied by the LinkedList if it is no longer in use.
+void freeLinkedList(struct LinkedList* list);

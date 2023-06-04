@@ -26,11 +26,11 @@
 #include <stdlib.h>
 #include "LinkedList.h"
 
-/**
- * Allocates memory for a zero-initialized LinkedList structure.
- *
- * @return A pointer to the newly created LinkedList structure or NULL on failure
- */
+ /**
+  * Allocates memory for a zero-initialized LinkedList structure.
+  *
+  * @return A pointer to the newly created LinkedList structure or NULL on failure
+  */
 struct LinkedList* initLinkedList(void) {
     struct LinkedList* list = calloc(1, sizeof(struct LinkedList));
     return list;
@@ -156,4 +156,26 @@ void removeNode(struct LinkedList* list, size_t index) {
     }
 
     list->size--;
+}
+
+/**
+ * Deallocates the memory occupied by the LinkedList if it is no longer in use.
+ *
+ * @param list A pointer to the LinkedList structure.
+ */
+void freeLinkedList(struct LinkedList* list) {
+    if (NULL == list) {
+        return;
+    }
+
+    struct node* currentNode = list->head;
+    struct node* nextNode;
+
+    while (NULL != currentNode) {
+        nextNode = currentNode->next;
+        free(currentNode);
+        currentNode = nextNode;
+    }
+
+    free(list);
 }
