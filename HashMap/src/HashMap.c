@@ -35,14 +35,14 @@
  *  if memory allocation fails or the capacity is zero
  */
 struct HashMap* initHashMap(size_t capacity) {
-    struct HashMap* map = calloc(1, sizeof(struct HashMap));
-
-    if (NULL == map) {
+    // Don't allow Zero Length Arrays
+    if (0 == capacity) {
         return NULL;
     }
 
-    // Don't allow Zero Length Arrays
-    if (0 == capacity) {
+    struct HashMap* map = calloc(1, sizeof(struct HashMap));
+
+    if (NULL == map) {
         return NULL;
     }
 
