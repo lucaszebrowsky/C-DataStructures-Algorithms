@@ -45,13 +45,13 @@ int main(void) {
         array[i] = SIZE - i;
     }
 
-    printf("**** Start Ascending Selection Sort ****\n");
+    printf("**** Start Ascending Insertion Sort ****\n");
 
     insertionSortAscending(array, len);
 
     printArray(array, len);
 
-    printf("**** Start Descending Selection Sort ****\n");
+    printf("**** Start Descending Insertion Sort ****\n");
 
     insertionSortDescending(array, len);
 
