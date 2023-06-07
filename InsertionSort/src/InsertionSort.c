@@ -27,7 +27,7 @@
 #include "InsertionSort.h"
 
  /**
-  * Sorts the array in ascending order (smallest to biggest value) using the selection sort algorithm.
+  * Sorts the array in ascending order (smallest to biggest value) using the insertion sort algorithm.
   *
   * @param array The array to be sorted.
   * @param len The length of the array.
@@ -58,7 +58,7 @@ void insertionSortAscending(int array[], int len) {
 }
 
 /**
- * Sorts the array in descending order (biggest to smallest value) using the selection sort algorithm.
+ * Sorts the array in descending order (biggest to smallest value) using the insertion sort algorithm.
  *
  * @param array The array to be sorted.
  * @param len The length of the array.
